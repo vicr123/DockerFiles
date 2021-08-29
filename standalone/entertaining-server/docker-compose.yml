@@ -30,7 +30,7 @@ services:
         volumes:
             - pg-entertaining:/var/lib/postgresql/data
     entertaining:
-        image: ghcr.io/vicr123/entertaining-server:vicr123-accounts
+        image: ghcr.io/vicr123/entertaining-server:master
         depends_on: [accounts, pg-entertaining]
         restart: always
         environment:
@@ -42,6 +42,7 @@ services:
         volumes:
             - "/var/entertaining/vicr123-accounts:/var/vicr123-accounts"
             - "/var/lib/entertaining-games/reports:/reports"
+            - "/var/lib/entertaining-games/documents:/usr/src/app/documents"
         ports:
             - "3000:3000"
 volumes:
