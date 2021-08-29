@@ -1,0 +1,28 @@
+version: "3"
+services:
+    pg-entertaining:
+        image: postgres:13-buster
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: secret123
+            POSTGRES_USER: entertaining
+            POSTGRES_HOST_AUTH_METHOD: md5
+        volumes:
+            - pg-entertaining:/var/lib/postgresql/data
+    entertaining:
+        image: ghcr.io/vicr123/entertaining-server:vicr123-accounts
+        depends_on: [pg-entertaining]
+        restart: always
+        environment:
+            DATABASE_HOST: pg-entertaining
+            DATABASE_USER: entertaining
+            DATABASE_PASSWORD: secret123
+            DATABASE_DATABASE: entertaining
+            REPORTSLOCATION: /reports
+        volumes:
+            - "/var/vicr123-accounts:/var/vicr123-accounts"
+            - "/var/lib/entertaining-games/reports:/reports"
+        ports:
+            - "3000:3000"
+volumes:
+    pg-entertaining:
