@@ -35,7 +35,7 @@ services:
         restart: always
         environment:
             DATABASE_HOST: pg-entertaining
-            DATABASE_USERNAME: entertaining
+            DATABASE_USER: entertaining
             DATABASE_PASSWORD: secret123
             DATABASE_DATABASE: entertaining
             REPORTSLOCATION: /reports
