@@ -21,9 +21,8 @@ services:
             REPORTSLOCATION: /reports
         volumes:
             - "/var/vicr123-accounts:/var/vicr123-accounts"
-            - "reports:/reports"
+            - "/var/lib/entertaining-games/reports:/reports"
         ports:
             - "3000:3000"
 volumes:
     pg-entertaining:
-    reports: /var/lib/entertaining-games/reports
