@@ -27,6 +27,8 @@ services:
             POSTGRES_PASSWORD: secret123
             POSTGRES_USER: entertaining
             POSTGRES_HOST_AUTH_METHOD: md5
+        volumes:
+            - pg-entertaining:/var/lib/postgresql/data
     entertaining:
         image: ghcr.io/vicr123/entertaining-server:vicr123-accounts
         depends_on: [accounts, pg-entertaining]
@@ -36,11 +38,13 @@ services:
             DATABASE_USERNAME: entertaining
             DATABASE_PASSWORD: secret123
             DATABASE_DATABASE: entertaining
+            REPORTSLOCATION: /reports
         volumes:
             - "/var/entertaining/vicr123-accounts:/var/vicr123-accounts"
-            - pg-entertaining:/var/lib/postgresql/data
+            - "reports:/reports"
         ports:
             - "3000:3000"
 volumes:
     pg-accounts:
     pg-entertaining:
+    reports: /var/lib/entertaining-games/reports
