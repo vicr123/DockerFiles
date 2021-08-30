@@ -19,7 +19,9 @@ services:
             ASPNETCORE_URLS: "http://0.0.0.0:5000/"
         volumes:
             - "/var/vicr123-accounts:/var/vicr123-accounts"
+            - "parlance-home:/root"
         ports:
             - "4000:5000"
 volumes:
     pg-parlance:
+    parlance-home:
