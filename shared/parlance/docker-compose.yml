@@ -20,8 +20,10 @@ services:
         volumes:
             - "/var/vicr123-accounts:/var/vicr123-accounts"
             - "parlance-home:/root"
+            - "parlance-data:/Data"
         ports:
             - "4000:5000"
 volumes:
     pg-parlance:
     parlance-home:
+    parlance-data:
