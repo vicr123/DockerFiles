@@ -30,12 +30,12 @@ services:
         volumes:
             - pg-parlance:/var/lib/postgresql/data
     parlance:
-        image: ghcr.io/thonkdifferent/parlancebackend:accounts
+        image: ghcr.io/vicr123/parlance:main
         depends_on: [accounts, pg-parlance]
         restart: always
         environment:
-            PARLANCE_ConnectionStrings__ProjectContext: "Host=pg-parlance; Database=parlance; Username=parlance; Password=secret123;"
-            PARLANCE_Parlance__GitRepository: "/Data"
+            Parlance__DatabaseConnectionString: "Host=pg-parlance; Database=parlance; Username=parlance; Password=secret123;"
+            Parlance__RepositoryDirectory: "/Data"
             ASPNETCORE_URLS: "http://0.0.0.0:5000/"
         volumes:
             - "/var/parlance/vicr123-accounts:/var/vicr123-accounts"
