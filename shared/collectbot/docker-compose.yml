@@ -1,0 +1,9 @@
+version: "3"
+services:
+    collectbot:
+        image: ghcr.io/vicr123/collectbot:master
+        restart: always
+        environment:
+            Collectbot__ConnectionString: "Data source=\"/var/lib/collectbot/data.db\";"
+        volumes:
+            - "/var/lib/collectbot:/var/lib/collectbot"
