@@ -1,5 +1,5 @@
 version: "3"
 services:
     ffc:
-        image: ghcr.io/vrabbers/ffc_ex:main
+        image: ghcr.io/vrabbers/ffc_ex:latest
         restart: always
