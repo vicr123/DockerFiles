@@ -10,13 +10,14 @@ services:
         volumes:
             - pg-parlance:/var/lib/postgresql/data
     parlance:
-        image: ghcr.io/vicr123/parlance:main
+        image: ghcr.io/vicr123/parlance:features-docker-alpine
         depends_on: [pg-parlance]
         restart: always
         environment:
             Parlance__DatabaseConnectionString: "Host=pg-parlance; Database=parlance; Username=parlance; Password=secret123;"
             Parlance__RepositoryDirectory: "/Data"
             ASPNETCORE_URLS: "http://0.0.0.0:5000/"
+            DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: 0
         volumes:
             - "/var/vicr123-accounts:/var/vicr123-accounts"
             - "parlance-home:/root"
