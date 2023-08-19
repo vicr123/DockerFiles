@@ -1,6 +1,6 @@
 version: "3"
 services:
-  entertaining:
+  troposphere:
     image: ghcr.io/thecheeseboard/thetroposphere:server
     restart: always
     ports:
