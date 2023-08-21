@@ -10,7 +10,7 @@ services:
         volumes:
             - pg-parlance:/var/lib/postgresql/data
     parlance:
-        image: ghcr.io/vicr123/parlance:features-docker-alpine
+        image: ghcr.io/vicr123/parlance:main
         depends_on: [pg-parlance]
         restart: always
         environment:
