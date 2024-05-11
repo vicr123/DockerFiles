@@ -1,0 +1,5 @@
+version: "3"
+services:
+    discord-monies:
+        image: ghcr.io/turtlestuff/discord-monies:main
+        restart: always
